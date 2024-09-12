@@ -1,0 +1,26 @@
+{
+    "Employees":[
+        {
+            "id":"01",
+            "email":"Harini@gmail.com",
+            "password":"Harini@01",
+            "isAdmin":true
+            
+        },
+        {
+            "id":"02",
+            "email":"Priya@gmail.com",
+            "password":"priya@02",
+            "isAdmin":false
+
+        },
+        {
+            "id":"03",
+            "email":"Rakshitha@gmail.com",
+            "password":"rakshitha@03",
+            "isAdmin":false
+
+        }
+    
+    ]
+}
