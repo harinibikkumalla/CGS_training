@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Playlist</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #1db954;
+        }
+        
+        .user-info {
+            margin: 20px 0;
+        }
+        
+        #user {
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        #user-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .playlist {
+            background-color: #282828;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        li {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Playlist</h1>
+        <div class="user-info">
+            <h3>Created by Bikkumalla Harini</h3>
+            <div id="user">
+                <img id="image.png" src="image.png" alt="User Photo">
+                <p id="Bikkumalla Harini"></p>
+            </div>
+        </div>
+        
+        <div class="playlist">
+            <h3>Playlist:</h3>
+            <ul id="song-list">
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            fetch('https://randomuser.me/api/')
+                .then(response => response.json())
+                .then(data => {
+                    const user = data.results[0];
+                    document.getElementById('user-photo').src = user.picture.medium;
+                    document.getElementById('user-name').textContent = `${user.name.first} ${user.name.last}`;
+                });
+        
+            const playlist = [
+                { title: 'Ninnila', artist: 'Chinmayi', audioSrc: 'Ninnila.mp3' },
+                { title: 'Teliyade', artist: 'Shreya Ghoshal', audioSrc: 'Teliyade.mp3' },
+                { title: 'Urike', artist: 'K. S. Chithra', audioSrc: 'Urike.mp3' },
+                { title: 'Ranjithame', artist: 'M.M.Manasi', audioSrc: 'Ranjithame.mp3'}, 
+                { title: 'Emo Emo', artist: 'Sid Sriram', audioSrc: 'Emo Emo.mp3' }
+                ];
+        
+            
+            const songList = document.getElementById('song-list');
+            
+            
+            const audio = new Audio();
+            
+            
+            function playSong(src) {
+                if (audio.src !== src) {
+                    audio.src = src; 
+                    audio.play();     
+                } else {
+                    audio.paused ? audio.play() : audio.pause();
+                }
+            }
+        
+            playlist.forEach(song => {
+                const li = document.createElement('li');
+                li.textContent = `${song.title} - ${song.artist}`;
+        
+                // Play song on click
+                li.addEventListener('click', () => playSong(song.audioSrc));
+                
+                songList.appendChild(li);
+            });
+            
+            audio.addEventListener('play', () => {
+                console.log('Playing:', audio.src);
+            });
+            
+            audio.addEventListener('pause', () => {
+                console.log('Paused:', audio.src);
+            });
+            
+            audio.addEventListener('ended', () => {
+                console.log('Song ended:', audio.src);
+            });
+        });
+        
+    </script>
+</body>
+</html>

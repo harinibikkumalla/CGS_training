@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Table Generator</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      padding: 5px;
+      text-align: center;
+    }
+    table {
+      margin-top: 20px;
+    }
+  </style>
+
+</head>
+<body>
+  <h2>Create Table</h2><hr>
+  
+  <form id="tableForm">
+    <label for="rows">Rows: </label>
+    <input type="number" id="rows mt-5" name="rows" min="1" required><br>
+
+    <label for="cols">Columns: </label>
+    <input type="number" id="cols mt-3" name="cols" min="1" required><hr>
+    <button type="submit"  class="btn btn-outline-success btn-bg">Generate Table</button>
+  </form>
+  
+  <div id="tableContainer"></div>
+
+  <script>
+    document.getElementById('tableForm').addEventListener('submit', function(event) {
+      event.preventDefault();  
+      
+      const rows = document.getElementById('rows').value;
+      const cols = document.getElementById('cols').value;
+      
+      const tableContainer = document.getElementById('tableContainer');
+      tableContainer.innerHTML = '';
+      const table = document.createElement('table');
+      
+      for (let i = 0; i < rows; i++) {
+        const tr = document.createElement('tr');
+        for (let j = 0; j < cols; j++) {
+          const td = document.createElement('td');
+          td.contentEditable = true;
+          td.innerText = `R${i + 1}C${j + 1}`;
+          tr.appendChild(td);
+      
+
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Picker Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: background-color 0.3s ease; 
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input[type="color"] {
+      cursor: pointer;
+      width: 100px;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+    }
+    .color-code {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Select a Background Color</h1>
+  
+  <input type="color" id="colorPicker" style="width: 50%;">
+  
+    
+    <div class="color-code">Color Code: <span id="colorCode">#ffffff</span></div>
+  
+  
+  
+  </div>
+
+  <script>
+    const colorPicker = document.getElementById('colorPicker');
+    const colorCodeDisplay = document.getElementById('colorCode');
+
+    colorPicker.addEventListener('input', function() {
+      const selectedColor = colorPicker.value;
+      document.body.style.backgroundColor = selectedColor; 
+      colorCodeDisplay.textContent = selectedColor; 
+    });
+  </script>
+
+</body>
+</html>

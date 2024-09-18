@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+           
+            background-image: linear-gradient(180deg,rgb(73, 69, 154), rgb(17, 19, 29));
+            
+            background-color: blue;
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .player-container {
+            background-color: #3e1b27;
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            height: auto;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .album-cover {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .song-title {
+            font-size: 1px;
+            font-weight: bold;
+            margin-bottom: 1px;
+        }
+
+        .artist-name {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .play-btn, .pause-btn {
+            background-color: #fff;
+            color: #828583;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            outline: none;
+        }
+
+        .progress-bar {
+            margin-top: 20px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .playlist {
+            margin-top: 20px;
+        }
+
+        .playlist-item {
+            cursor: pointer;
+            margin: 10px 0;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #121212;
+            transition: background-color 0.3s;
+        }
+
+        .playlist-item:hover {
+            background-color: #1db954;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <img class="album-cover" src="image.png" alt="song">
+        <div class="song-title" id="songTitle">Teliyade</div>
+        <div class="artist-name" id="artistName">Sid Sriram</div>
+        
+        
+
+
+
+        <div class="controls">
+            <button class="play-btn" id="playBtn">▶️</button>
+            <button class="pause-btn" id="pauseBtn" style="display: none;">⏸️</button>
+        </div>
+
+        <div class="progress-bar">
+            <input type="range" id="progress" value="0" min="0" max="100">
+        </div>
+
+        <div class="playlist">
+            <div class="playlist-item" data-song="Teliyade.mp3" data-title="Teliyade" data-artist="Sid Sriram">Teliyade </div>
+            <div class="playlist-item" data-song="Ninnila.mp3" data-title="Ninnila" data-artist="Sid Sriram">Ninnila </div>
+            <div class="playlist-item" data-song="Urike.mp3" data-title="Urike.mp3" data-artist="Sid Sriram"> Urike Urike</div>
+        </div>
+    </div>
+
+    <script>
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const progressBar = document.getElementById('progress');
+        const songTitle = document.getElementById('songTitle');
+        const artistName = document.getElementById('artistName');
+        const playlistItems = document.querySelectorAll('.playlist-item');
+
+        
+        let audio = new Audio('Teliyade.mp3');
+
+        playBtn.addEventListener('click', () => {
+            audio.play();
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'inline';
+        });
+
+        pauseBtn.addEventListener('click', () => {
+            audio.pause();
+            pauseBtn.style.display = 'none';
+            playBtn.style.display = 'inline';
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const progressValue = (audio.currentTime / audio.duration) * 100;
+            progressBar.value = progressValue;
+        });
+
+        progressBar.addEventListener('input', (e) => {
+            const seekTime = (e.target.value / 100) * audio.duration;
+            audio.currentTime = seekTime;
+        });
+
+        playlistItems.forEach(item => {
+            item.addEventListener('click', function() {
+                audio.pause();
+                progressBar.value = 0;
+
+                const newSong = this.getAttribute('data-song');
+                const newTitle = this.getAttribute('data-title');
+                const newArtist = this.getAttribute('data-artist');
+
+                songTitle.textContent = newTitle;
+                artistName.textContent = newArtist;
+
+                audio = new Audio(newSong);
+
+                audio.play();
+                playBtn.style.display = 'none';
+                pauseBtn.style.display = 'inline';
+
+                audio.addEventListener('timeupdate', () => {
+                    const progressValue = (audio.currentTime / audio.duration) * 100;
+                    progressBar.value = progressValue;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container container-fluid p-4 ">
+        <div class="card card-body p-5 mt-3 bg-light">
+            <div class="row mt-1 p-1 container-fluid float-left d:flex " width="50px" height="100px">
+                <div class="col-md-3  bg-warning text-center mt-5 p-5 ">
+                    <img src="janasena logo.png" alt="" class="rounded-circle " width="80px" height="80px" >
+                    <h4 >Janasena</h4>
+                    <H4 id="S1">0</H4>  
+                    
+                    <br>
+                    <button type="button1" class="btn btn-primary mt-3"id="btn1"
+                       ds="S1" >Vote janasena</button>
+                    
+                </div>
+                
+                <div  class="col-md-3 bg-secondary text-center mt-5 p-5">    
+                    <img src="bjp logo.jpg" alt="" class="rounded-circle" width="80px" height="80px">
+                    <h4>BJP</h4>
+                    <h4 id="S2">0</h4> 
+                    <br>
+                    <button type="button2" class="btn btn-primary  mt-3"id="btn2"
+                        ds="S2" >Vote BJP</button>
+
+                </div>
+                <div class="col-md-3 bg-warning text-center mt-5 p-5">
+                    <img src="brs logo.png" alt="" class="rounded-circle" width="80px" height="80px">
+                    <h4>BRS</h4>
+                    <h4 id="S3" >0</h4>  
+                    <br>
+                    <button type="button3" class="btn btn-primary text-center mt-3"id="btn3"
+                       ds="S3" >Vote BRS</button>
+
+                </div>
+                <div class="col-md-3 bg-secondary text-center mt-5 p-5">
+                    <img src="congress logo.jpg" alt="" class="rounded-circle" width="80px" height="80px">
+                    <h4>Congress</h4>
+                    
+                    <h4 id="S4">0</h4>
+
+                      <br>
+                       
+                    
+                       
+                        <button type="button4" class="btn btn-primary mt-3  "id="btn4"
+                          ds="S4"  >Vote congress</button>
+                    </div>
+                </div>
+            </div>
+        <div class="container container mt-1 p-1 text-center  " onclick="result()" id="result">
+            <button type="button" class="btn btn-success ">Result</button>
+        </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
