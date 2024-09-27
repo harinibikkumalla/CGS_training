@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECM - Enterprise Content Management</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+
+        .logo{
+            height: 100px;
+
+        }
+        
+        body {
+            padding-top: 56px;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            position: fixed;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        
+        <img src="ecm logo.jpg" alt="" class="logo">
+      
+        
+        <div>
+            <label for="search" class=""></label>
+            <input type="text" placeholder="Search">
+        
+        </div>
+        <div class=" navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-link-item">
+                    <a class="nav-link" href="#">Notifications</a>
+                </li>
+                <li class="nav-link-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                
+                <li class="nav-link-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <div class="sidebar bg-light">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Dash board</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Content Repository</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Workflows</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Analytics & Reports</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Help & Support</a>
+            </li>
+        </ul>
+    </div>
+
+    
+    <div class="content">
+        <div class="container-fluid">
+            <h1 class="mt-4">Dashboard</h1>
+            <p>Welcome to the Enterprise Content Management system <strong>"Where informational lives".</strong> You can manage and control the lifecycle of corporate documents,content .</p>
+            
+    
+            <hr>
+            
+            <h2>Recent Documents & Files</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Document Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Last Modified</th>
+                        <th scope="col">Owner</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Project Plan</td>
+                        <td>PDF</td>
+                        <td>2024-07-01</td>
+                        <td>Jagadeesh</td>
+                        <td>Published</td>
+                    </tr>
+                    <tr>
+                        <td>Project Requirements</td>
+                        <td>Word</td>
+                        <td>2024-08-20</td>
+                        <td>Jai</td>
+                        <td>Draft</td>
+                    </tr>
+                    <tr>
+                        <td>Analysis</td>
+                        <td>PDF</td>
+                        <td>2024-08-25</td>
+                        <td>Vaishnavi</td>
+                        <td>Draft</td>
+                    </tr>
+                    <tr>
+                        <td>Report </td>
+                        <td>PDF</td>
+                        <td>2024-08-01</td>
+                        <td>Santhoshi</td>
+                        <td>Published</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <div class="footer">
+        <p>&copy; 2024 ECM - Enterprise Content Management. All rights reserved.Feedback</p>
+    </div>
+
+    <script src="Ecmproject.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
